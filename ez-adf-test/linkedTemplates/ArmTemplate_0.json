@@ -359,19 +359,11 @@
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
-						"frequency": "Day",
+						"frequency": "Minute",
 						"interval": 1,
 						"startTime": "2023-06-29T18:31:00",
 						"endTime": "2023-06-30T18:31:00",
-						"timeZone": "Eastern Standard Time",
-						"schedule": {
-							"minutes": [
-								38
-							],
-							"hours": [
-								14
-							]
-						}
+						"timeZone": "Eastern Standard Time"
 					}
 				}
 			},
