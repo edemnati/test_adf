@@ -1,0 +1,33 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2023-06-29T18:31:00Z",
+				"endTime": "2023-06-30T18:31:00Z",
+				"timeZone": "UTC",
+				"schedule": {
+					"minutes": [
+						35
+					],
+					"hours": [
+						14
+					]
+				}
+			}
+		}
+	}
+}
