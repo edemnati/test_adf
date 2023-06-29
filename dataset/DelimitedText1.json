@@ -1,0 +1,77 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "daily-bike-share.csv",
+				"folderPath": "data",
+				"container": "ez-filesystem"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "day",
+				"type": "String"
+			},
+			{
+				"name": "mnth",
+				"type": "String"
+			},
+			{
+				"name": "year",
+				"type": "String"
+			},
+			{
+				"name": "season",
+				"type": "String"
+			},
+			{
+				"name": "holiday",
+				"type": "String"
+			},
+			{
+				"name": "weekday",
+				"type": "String"
+			},
+			{
+				"name": "workingday",
+				"type": "String"
+			},
+			{
+				"name": "weathersit",
+				"type": "String"
+			},
+			{
+				"name": "temp",
+				"type": "String"
+			},
+			{
+				"name": "atemp",
+				"type": "String"
+			},
+			{
+				"name": "hum",
+				"type": "String"
+			},
+			{
+				"name": "windspeed",
+				"type": "String"
+			},
+			{
+				"name": "rentals",
+				"type": "String"
+			}
+		]
+	}
+}
