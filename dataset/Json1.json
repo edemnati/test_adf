@@ -9,7 +9,10 @@
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "daily-bike-share.json",
+				"folderPath": "data",
+				"container": "ez-filesystem"
 			}
 		},
 		"schema": {}
