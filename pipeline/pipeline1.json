@@ -1,0 +1,74 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "query",
+						"value": "43.651070,-79.347015"
+					},
+					{
+						"name": "startDate",
+						"value": "2022-01-01"
+					},
+					{
+						"name": "endDate",
+						"value": "2023-03-31"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "RestResourceWeather",
+						"type": "DatasetReference",
+						"parameters": {
+							"query": "\"43.651070,-79.347015\"",
+							"startDate": "2022-01-01",
+							"endDate": "2023-03-31"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "JsonWeather",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-05-04T14:51:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

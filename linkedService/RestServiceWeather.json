@@ -1,0 +1,31 @@
+{
+	"name": "RestServiceWeather",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"query": {
+				"type": "string",
+				"defaultValue": "43.651070, -79.347015"
+			},
+			"startDate": {
+				"type": "string",
+				"defaultValue": "2022-01-01"
+			},
+			"endDate": {
+				"type": "string",
+				"defaultValue": "2022-01-31"
+			},
+			"subscription-key": {
+				"type": "string",
+				"defaultValue": "OYHaJQOrmXhB7LyFg384AR5oH-1HVxueFuWwARO_bQ4"
+			}
+		},
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://atlas.microsoft.com/weather/historical/records/daily/json",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

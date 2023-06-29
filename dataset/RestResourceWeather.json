@@ -1,0 +1,32 @@
+{
+	"name": "RestResourceWeather",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RestServiceWeather",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"query": "43.651070,-79.347015",
+				"startDate": "2022-01-01",
+				"endDate": "2022-01-31"
+			}
+		},
+		"parameters": {
+			"query": {
+				"type": "string",
+				"defaultValue": "43.651070,-79.347015"
+			},
+			"startDate": {
+				"type": "string",
+				"defaultValue": "2022-01-01"
+			},
+			"endDate": {
+				"type": "string",
+				"defaultValue": "2022-01-31"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
