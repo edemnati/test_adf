@@ -11,8 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "daily-bike-share.csv",
-				"folderPath": "data",
-				"container": "ez-filesystem"
+				"container": "test-adf"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
