@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "tbnl_daily_bike_share"
+			"table": "tbl_daily_bike_share"
 		}
 	}
 }
