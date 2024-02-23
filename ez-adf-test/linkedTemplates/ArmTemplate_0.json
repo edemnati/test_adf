@@ -63,6 +63,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalytics1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSynapseAnalytics1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/RestServiceWeather')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -96,17 +109,91 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalytics1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalyticsTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSynapseAnalytics1",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AzureSqlDW",
+				"type": "AzureSqlDWTable",
+				"schema": [
+					{
+						"name": "day",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "mnth",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "year",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "season",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "holiday",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "weekday",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "workingday",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "weathersit",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "temp",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "atemp",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "hum",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "windspeed",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "rentals",
+						"type": "int",
+						"precision": 10
+					}
+				],
 				"typeProperties": {
-					"connectionString": "[parameters('AzureSynapseAnalytics1_connectionString')]"
+					"schema": "dbo",
+					"table": "tbl_daily_bike_share"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSynapseAnalytics1')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
@@ -271,27 +358,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/RestServiceWeather')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalyticsTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSynapseAnalytics1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlDWTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "tbnl_daily_bike_share"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSynapseAnalytics1')]"
 			]
 		},
 		{
